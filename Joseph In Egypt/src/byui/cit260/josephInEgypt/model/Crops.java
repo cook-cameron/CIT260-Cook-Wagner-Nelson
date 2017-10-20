@@ -12,7 +12,7 @@ package byui.cit260.josephInEgypt.model;
 public class Crops {
     
     
-        //declaring (or defining) variables for Crops class
+        //declaring (or defining) variables for Crops class.
     
     private int year;
     private int population;
@@ -126,4 +126,4 @@ public class Crops {
         }
 }
     
-
+}
