@@ -9,7 +9,7 @@ package byui.cit260.josephInEgypt.model;
  *
  * @author cameroncook
  */
-public class Crops {
+public class Crops implements serializable {
     
     
         //declaring (or defining) variables for Crops class.
@@ -126,4 +126,4 @@ public class Crops {
         }
 }
     
-}
+
