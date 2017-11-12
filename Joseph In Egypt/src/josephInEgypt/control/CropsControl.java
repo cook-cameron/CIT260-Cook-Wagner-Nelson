@@ -6,129 +6,121 @@
 package josephInEgypt.control;
 
 import byui.cit260.josephInEgypt.model.Crops;
-import static java.lang.System.in;
-import static jdk.internal.org.objectweb.asm.commons.GeneratorAdapter.AND;
 
+import java.util.Random;
 /**
  *
  * @author cameroncook
  */
-public class CropsControl {
+public class CropsControl { 
 
-
-
-    // empty (default) constructor
-    public CropsControl() {}
+    public CropsControl() {
+    }
     
-    // the buyLand method
-    // Purpose: Process data input by user to buy land
-    // Parameters: Crops object, amount of land to Purchase, and land price
-    // Returns: none
 
+    private static Random random = new Random();
+    private static final int LAND_BASE = 17;
+    private static final int LAND_RANGE = 10;
+    
+
+    
+    public static int calcLandCost() {
+        int landPrice = random.nextInt(LAND_RANGE) + LAND_BASE;
+        return landPrice;
+        
+    }
+    
     /**
      *
      * @param theCrops
-     * @param ToBuy
-     * @param landCost
+     * @param toBuy
+     * @param landPrice
      * @return
      */
-    public static int buyLand(Crops theCrops, int ToBuy, int landCost)
-    {
        
-      
+    public static int buyLand(Crops theCrops, int toBuy, int landPrice){
+    
         
-// see if we have enough wheat
-        if(ToBuy * landCost > theCrops.getWheatInStore())
-        {
+       
+ // see if we have enough wheat
+        if(toBuy * landPrice > theCrops.getWheatInStore())
+        
             // error, not enough wheat
             return -1;
-        }
+        
         
         // subtract wheat we spent from wheat in store
         int wheatInStore = theCrops.getWheatInStore();
-        wheatInStore = wheatInStore - (ToBuy * landCost);
+        wheatInStore = wheatInStore - (toBuy * landPrice);
         
         // add land to land owned
-        int acres = theCrops.getAcres();
-        acres = acres + ToBuy;
+        int acresOwned = theCrops.getAcres();
+        acresOwned = toBuy + acresOwned;
         
         // save the updated values of the data back in the model layer
         theCrops.setWheatInStore(wheatInStore);
+      
+        theCrops.setAcres(acresOwned);
+        
+        return wheatInStore; // return acres
+        
+    }
+   
+        public int sellLand(Crops theCrops, int toSell){
+    
+        int acres = theCrops.getAcres();
+        int wheatInStore = theCrops.getWheatInStore();
+        
+        if ((toSell > acres) && (toSell < 0))
+            return -1;
+        
+        acres = acres - toSell;
         theCrops.setAcres(acres);
         
-        return acres; // return landOwned so we can unit test this method
+        int landPrice = calcLandCost();
         
+        wheatInStore = wheatInStore - (toSell - landPrice);
+        theCrops.setWheatInStore(wheatInStore);
+        
+        return acres;
+    
     }
     
-    /**
-     *
-     * @param theCrops
-     * @param toPlant
-     * @param pricePerAcre
-     * @return
-     */
-    public static int plantCrops(Crops theCrops, int pricePerAcre){
-        int wheatInStore = theCrops.wheatInStore;
-        int acres= theCrops.getAcres();
+        
+        public int plantCrops(Crops theCrops, int toPlant){
+       	
+        int wheatNeeded = toPlant * 2;
+        int wheat = theCrops.getWheatInStore();
+        int acres = theCrops.getAcres();
+        
+        
+        
+        // to plant has to be greater than zero
+        //toPlant cannot be more than acres owned (acres)
+        // WheatNeeded cannot be greater than Wheat
+        if((toPlant < 0) && (toPlant > acres) && (wheatNeeded > wheat))
+            return -1;        
+       
+        
+        wheat = wheat - wheatNeeded;
+        
+        
+        //set wheatInStore and Planted using setters
+        theCrops.setWheatInStore(wheat);
+        theCrops.setPlanted(toPlant);
+        
+        //return wheat to test
+        return wheat;
+        
+
+    }
+        
+        
       
         
         
-        
-        	if (planted<= acres) && (.planted x 2 <= wheatInStore){
-                wheatInStore= wheatInStore-pricePerAcre;
-                    return wheatInStore;
-                        }   
-                if else()
-                {
-                       System.err.printIn(“error”);
-                      
-                
-                 
-                        }
-               
-                
-              
-                
-                
-                
-                
-                
-                
-      
-        
-        
-        
-        
-    }
-    
-    
-    
-    
-    
-    
-    
-        
-    
-    
-    
-    
-    
-    
-        
-    
-    
-    
-    
-    
-    
-        
-    
-    
-    
-    
-    
-    
-    
-    
     
 }
+    
+    
+    
