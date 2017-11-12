@@ -22,26 +22,24 @@ public class Crops implements Serializable {
 
     
     
-    public int year;
-    public int population;
-    public int acres;
-    public int cropYield;
-   public int wheatInStore;
-   public int numberWhoDied;
-    public int newPeople;
-    public int harvest;
-    public int pharoahsShare;
-   public int fed;
-    public int planted;
+    private int year;
+    private int population;
+    private int acres;
+   private int cropYield;
+   private int wheatInStore;
+   private int numberWhoDied;
+    private int newPeople;
+    private int harvest;
+   private int pharoahsShare;
+   private int fed;
+   private int planted;
 
-    
-    
     public Crops() {
     }
-    
-    
-    
-    //declare getters and setters for the above
+   
+   
+   
+   
 
     public int getYear() {
         return year;
@@ -131,9 +129,89 @@ public class Crops implements Serializable {
         this.planted = planted;
     }
 
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 79 * hash + this.year;
+        hash = 79 * hash + this.population;
+        hash = 79 * hash + this.acres;
+        hash = 79 * hash + this.cropYield;
+        hash = 79 * hash + this.wheatInStore;
+        hash = 79 * hash + this.numberWhoDied;
+        hash = 79 * hash + this.newPeople;
+        hash = 79 * hash + this.harvest;
+        hash = 79 * hash + this.pharoahsShare;
+        hash = 79 * hash + this.fed;
+        hash = 79 * hash + this.planted;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Crops other = (Crops) obj;
+        if (this.year != other.year) {
+            return false;
+        }
+        if (this.population != other.population) {
+            return false;
+        }
+        if (this.acres != other.acres) {
+            return false;
+        }
+        if (this.cropYield != other.cropYield) {
+            return false;
+        }
+        if (this.wheatInStore != other.wheatInStore) {
+            return false;
+        }
+        if (this.numberWhoDied != other.numberWhoDied) {
+            return false;
+        }
+        if (this.newPeople != other.newPeople) {
+            return false;
+        }
+        if (this.harvest != other.harvest) {
+            return false;
+        }
+        if (this.pharoahsShare != other.pharoahsShare) {
+            return false;
+        }
+        if (this.fed != other.fed) {
+            return false;
+        }
+        if (this.planted != other.planted) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Crops{" + "year=" + year + ", population=" + population + ", acres=" + acres + ", cropYield=" + cropYield + ", wheatInStore=" + wheatInStore + ", numberWhoDied=" + numberWhoDied + ", newPeople=" + newPeople + ", harvest=" + harvest + ", pharoahsShare=" + pharoahsShare + ", fed=" + fed + ", planted=" + planted + '}';
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 }
-
