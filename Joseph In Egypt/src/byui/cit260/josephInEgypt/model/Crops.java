@@ -12,6 +12,10 @@ import java.io.Serializable;
  * @author cameroncook
  */
 public class Crops implements Serializable {
+
+    public static void setCrops(Crops theCrops) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
         //declaring (or defining) variables for Crops class.
@@ -30,7 +34,7 @@ public class Crops implements Serializable {
    private int numberWhoDied;
     private int newPeople;
     private int harvest;
-   private int pharoahsShare;
+   private int pharaohsShare;
    private int fed;
    private int planted;
 
@@ -105,12 +109,12 @@ public class Crops implements Serializable {
         this.harvest = harvest;
     }
 
-    public int getPharoahsShare() {
-        return pharoahsShare;
+    public int getPharaohsShare() {
+        return pharaohsShare;
     }
 
-    public void setPharoahsShare(int pharoahsShare) {
-        this.pharoahsShare = pharoahsShare;
+    public void setPharaohsShare(int pharaohsShare) {
+        this.pharaohsShare = pharaohsShare;
     }
 
     public int getFed() {
@@ -140,7 +144,7 @@ public class Crops implements Serializable {
         hash = 79 * hash + this.numberWhoDied;
         hash = 79 * hash + this.newPeople;
         hash = 79 * hash + this.harvest;
-        hash = 79 * hash + this.pharoahsShare;
+        hash = 79 * hash + this.pharaohsShare;
         hash = 79 * hash + this.fed;
         hash = 79 * hash + this.planted;
         return hash;
@@ -182,7 +186,7 @@ public class Crops implements Serializable {
         if (this.harvest != other.harvest) {
             return false;
         }
-        if (this.pharoahsShare != other.pharoahsShare) {
+        if (this.pharaohsShare != other.pharaohsShare) {
             return false;
         }
         if (this.fed != other.fed) {
@@ -196,7 +200,7 @@ public class Crops implements Serializable {
 
     @Override
     public String toString() {
-        return "Crops{" + "year=" + year + ", population=" + population + ", acres=" + acres + ", cropYield=" + cropYield + ", wheatInStore=" + wheatInStore + ", numberWhoDied=" + numberWhoDied + ", newPeople=" + newPeople + ", harvest=" + harvest + ", pharoahsShare=" + pharoahsShare + ", fed=" + fed + ", planted=" + planted + '}';
+        return "Crops{" + "year=" + year + ", population=" + population + ", acres=" + acres + ", cropYield=" + cropYield + ", wheatInStore=" + wheatInStore + ", numberWhoDied=" + numberWhoDied + ", newPeople=" + newPeople + ", harvest=" + harvest + ", pharoahsShare=" + pharaohsShare + ", fed=" + fed + ", planted=" + planted + '}';
     }
 
 

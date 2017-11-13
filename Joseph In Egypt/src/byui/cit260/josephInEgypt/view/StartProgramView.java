@@ -5,6 +5,9 @@
  */
 package byui.cit260.josephInEgypt.view;
 
+import java.util.Scanner;
+import josephInEgypt.control.GameControl;
+
 /**
  *
  * @author cameroncook
@@ -58,9 +61,53 @@ public final class StartProgramView {
      *
      */
     public void displayStartProgramView() {
-       System.out.println("\n*** displayStartProgram() function called ***"); //To change body of generated methods, choose Tools | Templates.
+   
+
+        String playerName = getPlayerName();
+        GameControl.createPlayer(playerName); 
+        
+        josephInEgypt.control.GameControl.createCrops();
+        
+        System.out.println("\n\n\n\n");
+        System.out.println(playerName + ", you have been appointed overseer"
+                + "for your village. Tread carefully, if your people are not"
+                + "fed well, you may lose your head.");
+      
+        
+        displayNextView();
+    }
+    
+    public String getPlayerName(){
+        Scanner keyboard = new Scanner(System.in);
+        String playerName = "";
+        
+        do {
+            //see week 7 slides
+            System.out.print("Please enter your name: ");
+            playerName = keyboard.nextLine();
+        
+            playerName = playerName.trim();
+          
+            if(playerName.length() < 2)//must have 2 characters
+             System.out.println("Invalid : name must be at least 2 characters");
+        }while(playerName.length() < 2);//must have at least 2 characters
+                
+        return playerName;
     }
 
-
+      
+   public void displayNextView(){
+         
+        MainMenuView mainMenuView = new MainMenuView();
+        mainMenuView.display();
+        // see MainMenuView
+        
+        
+  }
+    
+ 
+        
+        
+        
     
 }

@@ -13,7 +13,7 @@ import java.util.Objects;
  */
 public class Player implements Serializable{
     
-    //calss instance variables
+    //calls instance variables
     private String name;
     private double bestTime;
     private ArrayList<Game> games = new ArrayList<>();
