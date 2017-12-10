@@ -14,14 +14,14 @@ import java.util.Scanner;
 public abstract class View implements ViewInterface {
     
     protected String displayMessage;
-    protected int MAX;
+    protected int max;
 
     public View() {
     }
 
-    public View(String displayMessage, int MAX) {
-        this.displayMessage = displayMessage;
-        this.MAX = MAX;
+    public View(String message, int maxMenu) {
+        this.displayMessage = message;
+        this.max = maxMenu;
     }
 
     /**
@@ -38,7 +38,7 @@ public abstract class View implements ViewInterface {
                 System.out.println(displayMessage);
                 option = getUserInput();
                 doAction(option); // defined on line 88
-            }while(option != MAX);
+            }while(option != max);
             }
      
      //deBRy slide week 7
@@ -62,7 +62,8 @@ public abstract class View implements ViewInterface {
      //changed getMenuOption to getUserInput to match variables 
      
      
-     public static int getUserInput(){
+    @Override
+     public  int getUserInput(){
          //import scanner
          Scanner keyboard = new Scanner(System.in);
          //input value = 0 

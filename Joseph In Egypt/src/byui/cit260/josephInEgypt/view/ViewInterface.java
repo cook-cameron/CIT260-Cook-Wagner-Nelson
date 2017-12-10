@@ -12,13 +12,9 @@ package byui.cit260.josephInEgypt.view;
 public interface ViewInterface {
     
     public void display();
-    public String getInput();
+    public int getUserInput();
 
-    /**
-     *
-     * @param option
-     * @return
-     */
+
     public int doAction(int option);
     
 }

@@ -46,7 +46,14 @@ import josephInEgypt.control.GameControl;
     public static void setCrop(Crops _cropRef) {
         theCrops = _cropRef;
     }
-        
+
+    public static Game getGame(){
+        return theGame;
+    }
+    
+    public static void setGame(Game _gameRef){
+        theGame = _gameRef;
+    }
         
 
     }

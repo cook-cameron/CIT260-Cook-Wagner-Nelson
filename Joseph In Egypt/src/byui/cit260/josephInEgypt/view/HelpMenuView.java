@@ -5,18 +5,15 @@
  */
 package byui.cit260.josephInEgypt.view;
 
-import java.util.Scanner;
-
 /**
  *
  * @author cameroncook
  */
 public class HelpMenuView extends View{
-
-    public HelpMenuView() {
-    }
     
-        private String THE_MENU = "\n********************************"
+        private static final int MAX = 6;
+    
+            private static final String THE_MENU = "\n********************************************************"
         + "\n1 - What are the goals of the game?                    *" 
         + "\n2 - Who is Joseph of Egypt?                            *"
         + "\n3 - How do i view the map?                             *"
@@ -25,10 +22,14 @@ public class HelpMenuView extends View{
         + "\n6 - Back to the Main Menu                              *"        
         + "\n********************************************************"; 
        
-    //Scope of Scanner Keyboard? Ask why class scope didnt work
-    //MAX references w.7 slide 19 -- total number of options
-    Scanner keyboard = new Scanner(System.in);
-     
+
+
+    public HelpMenuView() {
+        
+        super(THE_MENU, MAX);
+        
+    }
+
      
 
 
@@ -40,19 +41,19 @@ public class HelpMenuView extends View{
         
         switch(option){
             case 1: 
-                System.out.println("The goals of game are...");
+                System.out.println("The goals of game are simple, maintain enough food....");
                 break;
             case 2: 
-                System.out.println("Joseph of Egypt is...");
+                System.out.println("The Story of Joseph in Egypt can be found in the bible in Genesis 37");
                 break;
             case 3: 
-                System.out.println("To view the map of Egypt...");
+                System.out.println("To view the map of Egypt, press 1 on the Game Menu Page");
                 break;
             case 4: 
-                System.out.println("To move to another location...");
+                System.out.println("To move to another location, press 3 on the game menu page");
                 break;
             case 5: 
-                System.out.println("To see a list of resources...");
+                System.out.println("To see a list of resources press 2 on the game menu page");
                 break;
             case 6: 
                 MainMenuView mainMenuView = new MainMenuView();
@@ -61,11 +62,13 @@ public class HelpMenuView extends View{
         }
         return option;
         
+    
+
     }
 
-    @Override
-    public String getInput() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+
+
+
+
     
 }

@@ -5,34 +5,31 @@
  */
 package byui.cit260.josephInEgypt.view;
 
-
-import java.util.Scanner;
-
 /**
  *
  * @author cameroncook
  */
 public class MainMenuView extends View {
-
-    public MainMenuView() {
-    }
     
-    
-    
-    //Main Menu assigned to THE_MENU
-    private String THE_MENU = "\n**********"
+    private static final int MAX =5;
+          //Main Menu assigned to THE_MENU
+    private static final String THE_MENU = "\n******************************"
         + "\n1 - Start New Game           *" 
         + "\n2 - Load a Saved Game        *"
         + "\n3 - Get Help on How to Play  *"
         + "\n4 - Save this Game           *"
         + "\n5 - Quit                     *"
         + "\n******************************"; 
-       
-    //Scope of Scanner Keyboard? Ask why class scope didnt work
-    //MAX references w.7 slide 19 -- total number of options
-    Scanner keyboard = new Scanner(System.in);
-     private static final int MAX = 5;
-     
+
+    
+
+    public MainMenuView(){
+        super(THE_MENU, MAX);
+    }
+
+
+    
+
      
     
 
@@ -60,11 +57,12 @@ public class MainMenuView extends View {
     //page 45 from team assignment w.7
     
     private void startNew() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       GameMenuView gameMenu = new GameMenuView();
+       gameMenu.display();
     }
 
     private void startSaved() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       System.out.println("The startSaved() Method goes here");
     }
 
     private void displayHelpView() {
@@ -74,17 +72,19 @@ public class MainMenuView extends View {
     }
 
     private void saveGame() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("The saveGame() Method goes here");
     }
 
     private void quit() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+           //quit Game method.
+        System.out.println("Thanks for playing...Goodbye!");
+        System.exit(0);
     }
 
-    @Override
-    public String getInput() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+
+
+
+
 
 
 

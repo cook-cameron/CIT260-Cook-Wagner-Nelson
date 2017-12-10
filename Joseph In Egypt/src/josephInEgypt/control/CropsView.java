@@ -7,6 +7,7 @@ package josephInEgypt.control;
 
 import byui.cit260.josephInEgypt.model.Crops;
 import byui.cit260.josephInEgypt.model.Game;
+import byui.cit260.josephInEgypt.view.ResourceView;
 import java.util.Scanner;
 
 /**
@@ -17,12 +18,33 @@ public class CropsView {
 
     public CropsView() {
     }
-    
+    private static Game theGame = Game.getGame();
     private static Crops theCrops = Game.getCrop();
     
+    // I am not sure if i even need this 
     
     private static Scanner keyboard = new Scanner(System.in);
     
+    
+    
+    
+    
+    
+    
+        public void DisplayCropsView() {
+        
+        ResourceView.display();
+        buyLandView();
+        //sellLandView();
+        //feedPeopleView();
+        //calcStarved();
+        //plantCropsView();
+        //harvestView();
+        //growPopulationView();
+        //payPharaoh();
+       
+               
+    }
 
             
             public static void buyLandView() {
@@ -52,7 +74,8 @@ public class CropsView {
      }while(toBuy < 0 || toBuy * landPrice > wheatInStore);
      CropsControl.buyLand(theCrops, toBuy, landPrice);
       }
-            
+
+
      
 
 }
